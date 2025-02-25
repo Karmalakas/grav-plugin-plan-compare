@@ -23,7 +23,18 @@ form:
                   fields:
                     header.plancompare.table:
                       type: plancompare
-                      label: TABLE
+                      fields:
+                        .checkmark:
+                          type: toggle
+                          label: false
+                          highlight: -1
+                          options:
+                            1: "✓"
+                            -1: "-"
+                            0: "✘"
+                        .text:
+                          type: text
+                          label: false
 
                 lists:
                   type: tab

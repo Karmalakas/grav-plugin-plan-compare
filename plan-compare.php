@@ -34,7 +34,9 @@ class PlanComparePlugin extends Plugin
         return [
             'onPluginsInitialized' => [
                 ['onPluginsInitialized', 0]
-            ]
+            ],
+            'onTwigInitialized' => ['onTwigInitialized', 0],
+            'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
         ];
     }
 
@@ -64,9 +66,7 @@ class PlanComparePlugin extends Plugin
         }
 
         $this->enable([
-            'onTwigInitialized' => ['onTwigInitialized', 0],
             'onAssetsInitialized' => ['onAssetsInitialized', 0],
-            'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
         ]);
     }
 

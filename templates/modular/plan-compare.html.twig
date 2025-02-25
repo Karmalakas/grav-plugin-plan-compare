@@ -1,0 +1,49 @@
+{% block content %}
+    {% set features = page.header.plancompare.features|filter(v => v.active) %}
+    {% set plans = page.header.plancompare.plans|filter(v => v.active) %}
+    {% set grid = page.header.plancompare.table %}
+
+    {% block heading %}
+        <h1 class="plan-compare-heading">{{ page.title }}</h1>
+    {% endblock %}
+    {% block pagecontent %}
+        {% if page.content %}
+            <section class="plan-compare-content">{{ page.content|raw }}</section>
+        {% endif %}
+    {% endblock %}
+    {% block grid %}
+        <section class="plan-compare-table-holder">
+            <table>
+                <thead>
+                <tr>
+                    <th></th>
+                    {% for plan in plans %}
+                        <th>{{ plan.label }}</th>
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                {% for feature in features %}
+                    <tr class="{{ feature.divider ? "plan-compare-divider" : "" }}">
+                        {% if feature.divider %}
+                            <th colspan="{{ plans|length + 1 }}">{{ feature.label }}</th>
+                        {% else %}
+                            <th>{{ feature.label }}</th>
+                            {% for plan in plans %}
+                                {% set slug = feature.label|slugify ~ "|" ~ plan.label|slugify %}
+                                <td>
+                                    {% if grid[slug] %}
+                                        {{ grid[slug].text }}
+                                    {% else %}
+                                        -
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    {% endblock %}
+{% endblock %}

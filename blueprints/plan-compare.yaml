@@ -1,0 +1,96 @@
+title: Plan Compare
+extends@:
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      fields:
+        plancompare:
+          type: tab
+          title: PLUGIN_PLAN_COMPARE.TABS.TITLE
+          ordering@: content
+
+          fields:
+            tabs:
+              type: tabs
+
+              fields:
+                table:
+                  type: tab
+                  title: PLUGIN_PLAN_COMPARE.TABS.TABLE
+                  fields:
+                    header.plancompare.table:
+                      type: plancompare
+                      label: TABLE
+
+                lists:
+                  type: tab
+                  title: PLUGIN_PLAN_COMPARE.TABS.LISTS
+                  fields:
+                    columns:
+                      type: columns
+                      fields:
+                        features:
+                          type: column
+                          fields:
+                            header.plancompare.features:
+                              type: list
+                              label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.HEADER
+                              collapsed: true
+                              controls: both
+                              placement: position
+                              fields:
+                                .label:
+                                  type: text
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.LABEL
+                                .active:
+                                  type: toggle
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.ACTIVE
+                                  highlight: 1
+                                  options:
+                                    1: PLUGIN_ADMIN.YES
+                                    0: PLUGIN_ADMIN.NO
+                                  validate:
+                                    type: bool
+                                .divider:
+                                  type: toggle
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.DIVIDER
+                                  highlight: 1
+                                  default: 0
+                                  options:
+                                    1: PLUGIN_ADMIN.YES
+                                    0: PLUGIN_ADMIN.NO
+                                  validate:
+                                    type: bool
+                                .description:
+                                  type: editor
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.DESCRIPTION
+
+                        plans:
+                          type: column
+                          fields:
+                            header.plancompare.plans:
+                              type: list
+                              label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.HEADER
+                              collapsed: true
+                              controls: both
+                              placement: position
+                              fields:
+                                .label:
+                                  type: text
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.LABEL
+                                .active:
+                                  type: toggle
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.ACTIVE
+                                  highlight: 1
+                                  options:
+                                    1: PLUGIN_ADMIN.YES
+                                    0: PLUGIN_ADMIN.NO
+                                  validate:
+                                    type: bool
+                                .description:
+                                  type: editor
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.DESCRIPTION
+

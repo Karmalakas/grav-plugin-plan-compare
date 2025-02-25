@@ -1,0 +1,53 @@
+name: Plan Compare
+slug: plan-compare
+type: plugin
+version: 1.0.0
+description: Create tables to compare features among different products or service plans
+icon: plug
+author:
+  name: Karmalakas
+homepage: https://github.com/karmalakas/grav-plugin-plan-compare
+demo: https://www.karmalakas.lt/grav-plugins-demos/
+keywords: grav, plugin, etc
+bugs: https://github.com/karmalakas/grav-plugin-plan-compare/issues
+docs: https://github.com/karmalakas/grav-plugin-plan-compare/blob/develop/README.md
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.7.0' }
+
+form:
+  validation: loose
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    built_in_css:
+      type: toggle
+      label: PLUGIN_PLAN_COMPARE.USE_BUILT_IN_CSS
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    built_in_js:
+      type: toggle
+      label: PLUGIN_PLAN_COMPARE.USE_BUILT_IN_JS
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool

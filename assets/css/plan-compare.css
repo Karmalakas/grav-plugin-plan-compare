@@ -1,0 +1,24 @@
+.plan-compare-table-holder {
+    overflow-x: auto;
+}
+
+.plan-compare-table-holder table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.plan-compare-table-holder th,
+.plan-compare-table-holder td {
+    text-align: left;
+    padding: 8px;
+}
+
+.plan-compare-table-holder tr:nth-child(even) {
+    background-color: #464646
+}
+
+.plan-compare-table-holder tr.plan-compare-divider {
+    background-color: transparent;
+    font-style: italic;
+}

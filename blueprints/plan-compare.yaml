@@ -15,26 +15,7 @@ form:
           fields:
             tabs:
               type: tabs
-
               fields:
-                table:
-                  type: tab
-                  title: PLUGIN_PLAN_COMPARE.TABS.TABLE
-                  fields:
-                    header.plancompare.table:
-                      type: plancompare
-                      fields:
-                        .checkmark:
-                          type: toggle
-                          label: false
-                          highlight: -1
-                          options:
-                            1: "✓"
-                            -1: "-"
-                            0: "✘"
-                        .text:
-                          type: text
-                          label: false
 
                 lists:
                   type: tab
@@ -105,3 +86,21 @@ form:
                                   type: editor
                                   label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.DESCRIPTION
 
+                table:
+                  type: tab
+                  title: PLUGIN_PLAN_COMPARE.TABS.TABLE
+                  fields:
+                    header.plancompare.table:
+                      type: plancompare
+                      fields:
+                        .checkmark:
+                          type: toggle
+                          label: false
+                          highlight: -1
+                          options:
+                            0: "✘"
+                            -1: "-"
+                            1: "✓"
+                        .text:
+                          type: text
+                          label: false

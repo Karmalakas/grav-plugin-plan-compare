@@ -89,21 +89,19 @@ class PlanComparePlugin extends Plugin
 
         $data = $header["plancompare"] ?? [];
 
-        foreach ($data['features'] as $feature) {
-            if (!empty($feature['divider'])) {
-                continue;
-            }
+        $this->grav['debugger']->addMessage($data);
+//        $this->grav['debugger']->addMessage($data['table']);
 
-            foreach ($data['plans'] as $plan) {
-                $slug_relation = sprintf('%s|%s', $this->slugify($feature['label']), $this->slugify($plan['label']));
-
-                if (empty($header['table'][$slug_relation])) {
-                    continue;
-                }
-
-                $header->offsetSet(sprintf('plancompare.table.%s', $slug_relation), $header['table'][$slug_relation]);
-            }
-        }
+//        foreach ($data['features'] as $feature) {
+//            if (!empty($feature['divider'])) {
+//                continue;
+//            }
+//
+//            foreach ($data['plans'] as $plan) {
+//                $slug_relation = sprintf('%s|%s', $this->slugify($feature['label']), $this->slugify($plan['label']));
+//                $header->offsetSet(sprintf('plancompare.table.%s', $slug_relation), $data['table'][$slug_relation]);
+//            }
+//        }
     }
 
     /**

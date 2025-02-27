@@ -1,0 +1,152 @@
+title: Plan Compare
+extends@:
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      fields:
+        plancompare:
+          type: tab
+          title: PLUGIN_PLAN_COMPARE.TABS.TITLE
+          ordering@: content
+
+          fields:
+            tabs:
+              type: tabs
+              fields:
+
+                lists:
+                  type: tab
+                  title: PLUGIN_PLAN_COMPARE.TABS.LISTS
+                  fields:
+                    columns:
+                      type: columns
+                      fields:
+                        features:
+                          type: column
+                          fields:
+                            header.plancompare.features:
+                              type: list
+                              label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.HEADER
+                              collapsed: true
+                              controls: both
+                              placement: position
+                              fields:
+                                .label:
+                                  type: list-item-label
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.LABEL
+                                  validate:
+                                    required: true
+                                .slug:
+                                  type: list-item-slug
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.SLUG.LABEL
+                                  help: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.SLUG.HELP
+                                .active:
+                                  type: toggle
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.ACTIVE
+                                  highlight: 1
+                                  options:
+                                    1: PLUGIN_ADMIN.YES
+                                    0: PLUGIN_ADMIN.NO
+                                  validate:
+                                    type: bool
+                                .divider:
+                                  type: toggle
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.DIVIDER
+                                  highlight: 1
+                                  default: 0
+                                  options:
+                                    1: PLUGIN_ADMIN.YES
+                                    0: PLUGIN_ADMIN.NO
+                                  validate:
+                                    type: bool
+                                .description:
+                                  type: codemirror
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.DESCRIPTION
+                                  codemirror:
+                                    ignore:
+                                      - undo
+                                      - redo
+                                      - delimiter
+                                      - image
+                                      - blockquote
+                                      - code
+                                      - preview
+                                      - fullscreen
+
+                        plans:
+                          type: column
+                          fields:
+                            header.plancompare.plans:
+                              type: list
+                              label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.HEADER
+                              collapsed: true
+                              controls: both
+                              placement: position
+                              fields:
+                                .label:
+                                  type: list-item-label
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.LABEL
+                                  validate:
+                                    required: true
+                                .slug:
+                                  type: list-item-slug
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.SLUG.LABEL
+                                  help: PLUGIN_PLAN_COMPARE.FORMS.PLANS.SLUG.HELP
+                                .active:
+                                  type: toggle
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.ACTIVE
+                                  highlight: 1
+                                  options:
+                                    1: PLUGIN_ADMIN.YES
+                                    0: PLUGIN_ADMIN.NO
+                                  validate:
+                                    type: bool
+                                .description:
+                                  type: codemirror
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.DESCRIPTION
+                                  codemirror:
+                                    ignore:
+                                      - undo
+                                      - redo
+                                      - delimiter
+                                      - image
+                                      - blockquote
+                                      - code
+                                      - preview
+                                      - fullscreen
+
+                table:
+                  type: tab
+                  title: PLUGIN_PLAN_COMPARE.TABS.TABLE
+                  fields:
+                    header.plancompare.table:
+                      type: plan-compare
+                      fields:
+                        .checkmark:
+                          type: toggle
+                          label: false
+                          highlight: -1
+                          options:
+                            0: "✘"
+                            -1: "-"
+                            1: "✓"
+                        .text:
+                          type: codemirror
+                          label: false
+                          style: "height: auto;"
+                          codemirror:
+                            ignore:
+                              - undo
+                              - redo
+                              - delimiter
+                              - image
+                              - blockquote
+                              - code
+                              - preview
+                              - fullscreen
+                              - headers
+                              - listOl
+                              - listUl

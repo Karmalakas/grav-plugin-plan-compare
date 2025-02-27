@@ -1,0 +1,4 @@
+title: Plan Compare
+extends@:
+  type: plan-compare
+  context: blueprints://pages

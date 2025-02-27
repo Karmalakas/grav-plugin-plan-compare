@@ -1,0 +1,98 @@
+{% block content %}
+    {% set features = page.header.plancompare.features|filter(v => v.active) %}
+    {% set plans = page.header.plancompare.plans|filter(v => v.active) %}
+    {% set grid = page.header.plancompare.table %}
+
+    <section class="plan-compare">
+        {% block heading %}
+            <h1 class="plan-compare-heading">{{ page.title }}</h1>
+        {% endblock %}
+
+        {% block pagecontent %}
+            {% if page.content %}
+                <section class="plan-compare-content">{{ page.content|raw }}</section>
+            {% endif %}
+        {% endblock %}
+
+        {% block grid %}
+            <section class="plan-compare-table-holder">
+                {% block table %}
+                    <table>
+                        {% block tableheading %}
+                            <thead>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    {% for plan in plans %}
+                                        {% block planlabelcell %}
+                                            <th>
+                                                {{ plan.label }}
+                                                {% if plan.description %}
+                                                    <span class="plan-compare-info plan-info"><span>{{ plan.description|nl2br|markdown(false) }}</span></span>
+                                                {% endif %}
+                                            </th>
+                                        {% endblock %}
+                                    {% endfor %}
+                                </tr>
+                            </thead>
+                        {% endblock %}
+                        {% block tablebody %}
+                            <tbody>
+                            {% for feature in features %}
+                                {% block featurerow %}
+                                    <tr class="{{ feature.divider ? "plan-compare-divider" : "" }}">
+                                        {% if feature.divider %}
+                                            {% block divider %}
+                                                <th class="divider-feature">{{ feature.label }}</th>
+                                                {% for plan in plans %}
+                                                    {% block dividerplancell %}
+                                                        <th class="divider-plan">{{ plan.label }}</th>
+                                                    {% endblock %}
+                                                {% endfor %}
+                                            {% endblock %}
+                                        {% else %}
+                                            {% block featurelabelcell %}
+                                                <th class="plan-compare-feature-label">
+                                                    {{ feature.label }}
+                                                    {% if feature.description %}
+                                                        <span class="plan-compare-info feature-info"><span>{{ feature.description|nl2br|markdown(false) }}</span></span>
+                                                    {% endif %}
+                                                </th>
+                                            {% endblock %}
+                                            {% for plan in plans %}
+                                                {% set slug = feature.slug ~ "|" ~ plan.slug %}
+                                                {% block contentcell %}
+                                                    <td>
+                                                        {% if grid[slug] %}
+                                                            {% block checkmark %}
+                                                                {% if grid[slug].checkmark != -1 %}
+                                                                    <span class="plan-compare-checkmark {{ grid[slug].checkmark ? "checkmark-yes" : "checkmark-no" }}">
+                                                                        {{ grid[slug].checkmark ? "✓" : "✘" }}
+                                                                    </span>
+                                                                {% endif %}
+                                                            {% endblock %}
+                                                            {% block celltext %}
+                                                                {{ grid[slug].text|nl2br|markdown(false) }}
+                                                            {% endblock %}
+                                                            {% block cellempty %}
+                                                                {% if grid[slug].checkmark == -1 and not grid[slug].text %}
+                                                                    -
+                                                                {% endif %}
+                                                            {% endblock %}
+                                                        {% else %}
+                                                            -
+                                                        {% endif %}
+                                                    </td>
+                                                {% endblock %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </tr>
+                                {% endblock %}
+                            {% endfor %}
+                            </tbody>
+                        {% endblock %}
+                    </table>
+                {% endblock %}
+            </section>
+        {% endblock %}
+    </section>
+{% endblock %}

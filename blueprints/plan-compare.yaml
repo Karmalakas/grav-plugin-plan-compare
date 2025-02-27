@@ -104,6 +104,9 @@ form:
                                     0: PLUGIN_ADMIN.NO
                                   validate:
                                     type: bool
+                                .color:
+                                  type: colorpicker
+                                  label: false
                                 .description:
                                   type: codemirror
                                   label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.DESCRIPTION

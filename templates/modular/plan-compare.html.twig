@@ -5,7 +5,7 @@
 
     <section class="plan-compare">
         {% block heading %}
-            <h1 class="plan-compare-heading">{{ page.title }}</h1>
+            <h2 class="plan-compare-heading">{{ page.title }}</h2>
         {% endblock %}
 
         {% block pagecontent %}
@@ -39,13 +39,13 @@
                             <tbody>
                             {% for feature in features %}
                                 {% block featurerow %}
-                                    <tr class="{{ feature.divider ? "plan-compare-divider" : "" }}">
+                                    <tr{{ feature.divider ? ' class="plan-compare-divider"' : "" }}>
                                         {% if feature.divider %}
                                             {% block divider %}
                                                 <th class="divider-feature">{{ feature.label }}</th>
                                                 {% for plan in plans %}
                                                     {% block dividerplancell %}
-                                                        <th class="divider-plan">{{ plan.label }}</th>
+                                                        <th class="divider-plan"{{ plan.color ? " style=\"background-color:#{plan.color};\""|raw : null }}>{{ plan.label }}</th>
                                                     {% endblock %}
                                                 {% endfor %}
                                             {% endblock %}
@@ -61,7 +61,7 @@
                                             {% for plan in plans %}
                                                 {% set slug = feature.slug ~ "|" ~ plan.slug %}
                                                 {% block contentcell %}
-                                                    <td>
+                                                    <td{{ plan.color ? " style=\"background-color:#{plan.color};\""|raw : null }}>
                                                         {% if grid[slug] %}
                                                             {% block checkmark %}
                                                                 {% if grid[slug].checkmark != -1 %}

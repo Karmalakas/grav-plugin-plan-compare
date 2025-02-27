@@ -2,7 +2,7 @@
 
 **This README.md file should be modified to describe the features, installation, configuration, and general usage of the plugin.**
 
-The **Plan Compare** Plugin is an extension for [Grav CMS](https://github.com/getgrav/grav). Create tables to compare features among different service plans or products 
+The **Plan Compare** Plugin is an extension for [Grav CMS](https://github.com/getgrav/grav). Create tables to compare features among different service plans or products
 
 ## Usage
 
@@ -42,7 +42,7 @@ To install the plugin manually, download the zip-version of this repository and 
 You should now have all the plugin files under
 
     /your/site/grav/user/plugins/plan-compare
-	
+
 > NOTE: This plugin is a modular component for Grav which may require other plugins to operate, please see its [blueprints.yaml-file on GitHub](https://github.com//grav-plugin-plan-compare/blob/main/blueprints.yaml).
 
 ### Admin Plugin

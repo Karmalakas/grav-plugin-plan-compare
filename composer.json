@@ -1,7 +1,7 @@
 {
   "name": "karmalakas/plan-compare",
   "type": "grav-plugin",
-  "description": "Create tables to compare features among different products or service plans",
+  "description": "Create tables to compare features among different service plans or products",
   "keywords": ["plugin"],
   "homepage": "https://github.com/karmalakas/grav-plugin-plan-compare",
   "license": "MIT",

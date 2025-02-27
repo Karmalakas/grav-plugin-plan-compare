@@ -2,7 +2,7 @@ name: Plan Compare
 slug: plan-compare
 type: plugin
 version: 1.0.0
-description: Create tables to compare features among different products or service plans
+description: Create tables to compare features among different service plans or products
 icon: plug
 author:
   name: Karmalakas

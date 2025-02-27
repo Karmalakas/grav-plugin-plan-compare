@@ -106,7 +106,7 @@ form:
                                     type: bool
                                 .color:
                                   type: colorpicker
-                                  label: false
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.COLOR
                                 .description:
                                   type: codemirror
                                   label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.DESCRIPTION

@@ -30,6 +30,7 @@ en:
         LABEL: "Label"
         ACTIVE: "Active"
         DESCRIPTION: "Description"
+        COLOR: "Color"
         SLUG:
           LABEL: "Slug"
           HELP: "Required for grid to work. If changed, will require data in the grid for that plan to be filled again for all features."

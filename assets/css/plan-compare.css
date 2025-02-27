@@ -57,11 +57,13 @@
 
 .plan-compare-table-holder .plan-compare-info::before {
     content: "\1f6c8";
+    z-index: 0;
 }
 
 .plan-compare-table-holder .plan-compare-info > span {
     --bg-color: #e7e7e7;
 
+    z-index: 1;
     visibility: hidden;
     transition: visibility 0s;
     transition-delay: 250ms;

@@ -35,8 +35,14 @@ form:
                               placement: position
                               fields:
                                 .label:
-                                  type: text
+                                  type: list-item-label
                                   label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.LABEL
+                                  validate:
+                                    required: true
+                                .slug:
+                                  type: list-item-slug
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.SLUG.LABEL
+                                  help: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.SLUG.HELP
                                 .active:
                                   type: toggle
                                   label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.ACTIVE
@@ -57,8 +63,18 @@ form:
                                   validate:
                                     type: bool
                                 .description:
-                                  type: editor
+                                  type: codemirror
                                   label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.DESCRIPTION
+                                  codemirror:
+                                    ignore:
+                                      - undo
+                                      - redo
+                                      - delimiter
+                                      - image
+                                      - blockquote
+                                      - code
+                                      - preview
+                                      - fullscreen
 
                         plans:
                           type: column
@@ -71,8 +87,14 @@ form:
                               placement: position
                               fields:
                                 .label:
-                                  type: text
+                                  type: list-item-label
                                   label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.LABEL
+                                  validate:
+                                    required: true
+                                .slug:
+                                  type: list-item-slug
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.SLUG.LABEL
+                                  help: PLUGIN_PLAN_COMPARE.FORMS.PLANS.SLUG.HELP
                                 .active:
                                   type: toggle
                                   label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.ACTIVE
@@ -83,15 +105,25 @@ form:
                                   validate:
                                     type: bool
                                 .description:
-                                  type: editor
+                                  type: codemirror
                                   label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.DESCRIPTION
+                                  codemirror:
+                                    ignore:
+                                      - undo
+                                      - redo
+                                      - delimiter
+                                      - image
+                                      - blockquote
+                                      - code
+                                      - preview
+                                      - fullscreen
 
                 table:
                   type: tab
                   title: PLUGIN_PLAN_COMPARE.TABS.TABLE
                   fields:
                     header.plancompare.table:
-                      type: plancompare
+                      type: plan-compare
                       fields:
                         .checkmark:
                           type: toggle
@@ -102,5 +134,19 @@ form:
                             -1: "-"
                             1: "✓"
                         .text:
-                          type: text
+                          type: codemirror
                           label: false
+                          style: "height: auto;"
+                          codemirror:
+                            ignore:
+                              - undo
+                              - redo
+                              - delimiter
+                              - image
+                              - blockquote
+                              - code
+                              - preview
+                              - fullscreen
+                              - headers
+                              - listOl
+                              - listUl

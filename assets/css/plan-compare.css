@@ -8,17 +8,90 @@
     width: 100%;
 }
 
+.plan-compare-table-holder th {
+    width: fit-content;
+    min-width: 5em;
+}
+
 .plan-compare-table-holder th,
 .plan-compare-table-holder td {
     text-align: left;
-    padding: 8px;
+    padding: 0.75em;
+    white-space: nowrap;
 }
 
 .plan-compare-table-holder tr:nth-child(even) {
-    background-color: #464646
+    background-color: #464646;
 }
 
 .plan-compare-table-holder tr.plan-compare-divider {
     background-color: transparent;
     font-style: italic;
+}
+
+.plan-compare-table-holder tr.plan-compare-divider th {
+    padding-top: 2.5em;
+}
+
+.plan-compare-table-holder .plan-compare-info {
+    position: relative;
+}
+
+.plan-compare-table-holder .plan-compare-info::before {
+    content: "\1f6c8";
+}
+
+.plan-compare-table-holder .plan-compare-info > span {
+    --bg-color: #373737;
+
+    visibility: hidden;
+    transition: visibility 0s;
+    transition-delay: 250ms;
+    padding: 0.5em 1em;
+    position: absolute;
+    width: max-content;
+    max-width: min(25em, 75vw);
+    font-weight: initial;
+    background-color: var(--bg-color);
+    white-space: initial;
+}
+
+.plan-compare-table-holder .plan-compare-info.feature-info > span {
+    left: 2em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.plan-compare-table-holder .plan-compare-info.plan-info > span {
+    top: 2em;
+    left: 50%;
+    transform: translateX(-75%);
+}
+
+.plan-compare-table-holder .plan-compare-info > span:before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border: 0.5em solid transparent;
+}
+
+.plan-compare-table-holder .plan-compare-info.feature-info > span:before {
+    border-right: 0.5em solid var(--bg-color);
+    left: -1em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.plan-compare-table-holder .plan-compare-info.plan-info > span:before {
+    border-bottom: 0.5em solid var(--bg-color);
+    top: -1em;
+    left: 75%;
+    transform: translateX(-50%);
+}
+
+.plan-compare-table-holder .plan-compare-info:hover > span {
+    visibility: visible;
+    transition-delay: 150ms;
 }

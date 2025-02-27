@@ -35,8 +35,8 @@ class PlanComparePlugin extends Plugin
             'onPluginsInitialized' => [
                 ['onPluginsInitialized', 0]
             ],
-            'onTwigInitialized' => ['onTwigInitialized', 0],
             'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
+            'onAssetsInitialized' => ['onAssetsInitialized', 0],
         ];
     }
 
@@ -55,18 +55,14 @@ class PlanComparePlugin extends Plugin
      */
     public function onPluginsInitialized(): void
     {
-        if ($this->isAdmin()) {
-            $this->enable([
-                'onAdminSave' => ['onAdminSave', 0],
-                'onGetPageTemplates' => ['onGetPageTemplates', 0],
-                'onGetPageBlueprints' => ['onGetPageBlueprints', 0],
-            ]);
-
+        if (!$this->isAdmin()) {
             return;
         }
 
         $this->enable([
-            'onAssetsInitialized' => ['onAssetsInitialized', 0],
+            'onAdminSave' => ['onAdminSave', 0],
+            'onGetPageTemplates' => ['onGetPageTemplates', 0],
+            'onGetPageBlueprints' => ['onGetPageBlueprints', 0],
         ]);
     }
 
@@ -88,20 +84,19 @@ class PlanComparePlugin extends Plugin
         }
 
         $data = $header["plancompare"] ?? [];
+        $save_slugs = [];
 
-        $this->grav['debugger']->addMessage($data);
-//        $this->grav['debugger']->addMessage($data['table']);
+        foreach ($data['features'] as $feature) {
+            if (!empty($feature['divider'])) {
+                continue;
+            }
 
-//        foreach ($data['features'] as $feature) {
-//            if (!empty($feature['divider'])) {
-//                continue;
-//            }
-//
-//            foreach ($data['plans'] as $plan) {
-//                $slug_relation = sprintf('%s|%s', $this->slugify($feature['label']), $this->slugify($plan['label']));
-//                $header->offsetSet(sprintf('plancompare.table.%s', $slug_relation), $data['table'][$slug_relation]);
-//            }
-//        }
+            foreach ($data['plans'] as $plan) {
+                $save_slugs[sprintf('%s|%s', $feature['slug'], $plan['slug'])] = true;
+            }
+        }
+
+        $header->set('plancompare.table', array_intersect_key($data['table'], $save_slugs));
     }
 
     /**
@@ -137,47 +132,30 @@ class PlanComparePlugin extends Plugin
     /**
      * @param Event $event
      */
-    public function onTwigInitialized(Event $event)
-    {
-        $this->grav['twig']->twig()->addFilter(
-            new \Twig_SimpleFilter('slugify', [$this, 'slugify'])
-        );
-    }
-
-    /**
-     * @param Event $event
-     */
     public function onAssetsInitialized(Event $event)
     {
+        if ($this->isAdmin()) {
+            $this->grav['assets']->addCss(sprintf('plugin://%s/assets/css/admin.css', $this->name));
+            $this->grav['assets']->addJs(sprintf('plugin://%s/assets/js/editor-observer.js', $this->name));
+            $this->grav['assets']->addJs(sprintf('plugin://%s/assets/js/slugify.js', $this->name));
+
+            return;
+        }
+
         if ($this->config->get(sprintf('plugins.%s.built_in_css', $this->name))) {
             $this->grav['assets']->addCss(sprintf('plugin://%1$s/assets/css/%1$s.css', $this->name));
         }
     }
 
-    public function slugify($text, string $divider = '-')
+    /**
+     * Get list of form field types specified in this plugin. Only special types needs to be listed.
+     *
+     * @return array
+     */
+    public function getFormFieldTypes()
     {
-        // replace non letter or digits by divider
-        $text = preg_replace('~[^\pL\d]+~u', $divider, $text);
-
-        // transliterate
-        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-
-        // remove unwanted characters
-        $text = preg_replace('~[^-\w]+~', '', $text);
-
-        // trim
-        $text = trim($text, $divider);
-
-        // remove duplicate divider
-        $text = preg_replace('~-+~', $divider, $text);
-
-        // lowercase
-        $text = strtolower($text);
-
-        if (empty($text)) {
-            return 'n-a';
-        }
-
-        return $text;
+        return [
+            'plan-compare' => ['array' => true],
+        ];
     }
 }

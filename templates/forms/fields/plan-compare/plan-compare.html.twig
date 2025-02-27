@@ -1,0 +1,36 @@
+{% extends "forms/field.html.twig" %}
+
+{% block field %}
+    {% set features = context.header.plancompare.features %}
+    {% set plans = context.header.plancompare.plans %}
+
+    <section class="plan-compare-table-holder">
+        <table>
+            <thead>
+            <tr>
+                <th>&nbsp;</th>
+                {% for plan in plans %}
+                    <th>{{ plan.label }}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for feature in features %}
+                <tr class="{{ feature.divider ? "plan-compare-divider" : "" }}">
+                    {% if feature.divider %}
+                        <th colspan="{{ plans|length + 1 }}">{{ feature.label }}</th>
+                    {% else %}
+                        <th>{{ feature.label }}</th>
+                        {% for plan in plans %}
+                            {% set slug = feature.slug ~ "|" ~ plan.slug %}
+                            <td>
+                                {% include 'forms/default/fields.html.twig' with {name: field.name ~ '.' ~ slug, fields: field.fields} %}
+                            </td>
+                        {% endfor %}
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

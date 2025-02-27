@@ -1,0 +1,37 @@
+en:
+  PLUGIN_PLAN_COMPARE:
+    DEFAULTS: 'Default options'
+    PAGE_OPTIONS: 'Page options'
+    USE_BUILT_IN_CSS: 'Use built in CSS'
+    USE_BUILT_IN_JS: 'Use built in JS'
+
+    TABS:
+      TITLE: "Plan compare"
+      TABLE: "Table"
+      LISTS: "Lists"
+
+    FORMS:
+      TABLE:
+        TEXT: "Text"
+
+      FEATURES:
+        HEADER: "Features"
+        LABEL: "Label"
+        ACTIVE: "Active"
+        DIVIDER: "Divider"
+        DESCRIPTION: "Description"
+        SLUG:
+          LABEL: "Slug"
+          HELP: "Required for grid to work. If changed, will require data in the grid for that feature to be filled again for all plans."
+          REGEN_HINT: "Regenerate based on feature label"
+
+      PLANS:
+        HEADER: "Plans"
+        LABEL: "Label"
+        ACTIVE: "Active"
+        DESCRIPTION: "Description"
+        SLUG:
+          LABEL: "Slug"
+          HELP: "Required for grid to work. If changed, will require data in the grid for that plan to be filled again for all features."
+
+      SLUG_REGEN_HINT: "Regenerate based on label"

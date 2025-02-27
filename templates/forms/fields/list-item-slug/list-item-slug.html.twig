@@ -1,0 +1,10 @@
+{% extends "forms/fields/text/text.html.twig" %}
+{% set field = field|merge({'wrapper_classes': 'form-input-addon-wrapper'}) %}
+
+{% block append %}
+    <div
+            class="form-input-addon form-input-append hint--top"
+            data-hint="{{ 'PLUGIN_PLAN_COMPARE.FORMS.SLUG_REGEN_HINT'|t }}"
+            data-plan-compare-slug-regenerate="true"
+    ><i class="fa fa-refresh"></i></div>
+{% endblock %}

@@ -96,7 +96,7 @@ class PlanComparePlugin extends Plugin
             }
         }
 
-        $header->set('plancompare.table', array_intersect_key($data['table'], $save_slugs));
+        $header->set('plancompare.table', array_intersect_key($data['table'] ?? [], $save_slugs));
     }
 
     /**

@@ -13,19 +13,27 @@
     min-width: 5em;
 }
 
-.plan-compare-table-holder th,
-.plan-compare-table-holder td {
+.plan-compare-table-holder tbody th {
     text-align: left;
+}
+
+.plan-compare-table-holder th,
+.plan-compare-table-holder th.divider-plan,
+.plan-compare-table-holder td {
+    text-align: center;
     padding: 0.75em;
     white-space: nowrap;
 }
 
 .plan-compare-table-holder tr:nth-child(even) {
-    background-color: #464646;
+    background-color: #fafafa;
 }
 
 .plan-compare-table-holder tr.plan-compare-divider {
     background-color: transparent;
+}
+
+.plan-compare-table-holder tr.plan-compare-divider th.divider-feature {
     font-style: italic;
 }
 
@@ -33,8 +41,18 @@
     padding-top: 2.5em;
 }
 
+.plan-compare-table-holder .plan-compare-checkmark.checkmark-yes {
+    font-weight: bold;
+    color: #3d8b3d;
+}
+
+.plan-compare-table-holder .plan-compare-checkmark.checkmark-no {
+    color: #b52b27;
+}
+
 .plan-compare-table-holder .plan-compare-info {
     position: relative;
+    font-weight: normal;
 }
 
 .plan-compare-table-holder .plan-compare-info::before {
@@ -42,7 +60,7 @@
 }
 
 .plan-compare-table-holder .plan-compare-info > span {
-    --bg-color: #373737;
+    --bg-color: #e7e7e7;
 
     visibility: hidden;
     transition: visibility 0s;

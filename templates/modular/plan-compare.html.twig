@@ -42,10 +42,10 @@
                                     <tr class="{{ feature.divider ? "plan-compare-divider" : "" }}">
                                         {% if feature.divider %}
                                             {% block divider %}
-                                                <th>{{ feature.label }}</th>
+                                                <th class="divider-feature">{{ feature.label }}</th>
                                                 {% for plan in plans %}
                                                     {% block dividerplancell %}
-                                                        <th class="plan-compare-divider-plan">{{ plan.label }}</th>
+                                                        <th class="divider-plan">{{ plan.label }}</th>
                                                     {% endblock %}
                                                 {% endfor %}
                                             {% endblock %}

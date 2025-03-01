@@ -56,8 +56,9 @@
 }
 
 .plan-compare-table-holder .plan-compare-info::before {
-    content: "\1f6c8";
+    content: "\24D8";
     z-index: 0;
+    font-weight: bold;
 }
 
 .plan-compare-table-holder .plan-compare-info > span {

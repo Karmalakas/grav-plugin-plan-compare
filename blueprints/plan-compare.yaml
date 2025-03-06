@@ -52,6 +52,9 @@ form:
                                     0: PLUGIN_ADMIN.NO
                                   validate:
                                     type: bool
+                                .color:
+                                  type: colorpicker
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.COLOR
                                 .divider:
                                   type: toggle
                                   label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.DIVIDER

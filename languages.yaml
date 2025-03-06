@@ -19,6 +19,7 @@ en:
         LABEL: "Label"
         ACTIVE: "Active"
         DIVIDER: "Divider"
+        COLOR: "Color"
         DESCRIPTION: "Description"
         SLUG:
           LABEL: "Slug"

@@ -37,12 +37,12 @@ form:
                                 .label:
                                   type: list-item-label
                                   label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.LABEL
-                                  validate:
-                                    required: true
                                 .slug:
                                   type: list-item-slug
                                   label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.SLUG.LABEL
                                   help: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.SLUG.HELP
+                                  validate:
+                                    required: true
                                 .active:
                                   type: toggle
                                   label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.ACTIVE
@@ -103,12 +103,12 @@ form:
                                 .label:
                                   type: list-item-label
                                   label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.LABEL
-                                  validate:
-                                    required: true
                                 .slug:
                                   type: list-item-slug
                                   label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.SLUG.LABEL
                                   help: PLUGIN_PLAN_COMPARE.FORMS.PLANS.SLUG.HELP
+                                  validate:
+                                    required: true
                                 .active:
                                   type: toggle
                                   label: PLUGIN_PLAN_COMPARE.FORMS.PLANS.ACTIVE

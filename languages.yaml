@@ -26,7 +26,7 @@ en:
         DESCRIPTION: "Description"
         SLUG:
           LABEL: "Slug"
-          HELP: "Required for grid to work. If changed, will require data in the grid for that feature to be filled again for all plans."
+          HELP: "Required and must be unique in the list for grid to work. If changed, will require data in the grid for that feature to be filled again for all plans."
           REGEN_HINT: "Regenerate based on feature label"
 
       PLANS:
@@ -37,6 +37,6 @@ en:
         COLOR: "Color"
         SLUG:
           LABEL: "Slug"
-          HELP: "Required for grid to work. If changed, will require data in the grid for that plan to be filled again for all features."
+          HELP: "Required and must be unique in the list for grid to work. If changed, will require data in the grid for that plan to be filled again for all features."
 
       SLUG_REGEN_HINT: "Regenerate based on label"

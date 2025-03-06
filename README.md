@@ -6,7 +6,12 @@ The **Plan Compare** Plugin is an extension for [Grav CMS](https://github.com/ge
 
 When creating a page (normal or modular), select a `plan-compare` template, and you will have a "Plan compare" tab in the Admin panel. There you will see 2 more tabs:
 - Lists - create your feature and plan lists
+![admin-lists.png](assets/img/admin-lists.png)
+
 - Table - after saving the lists, you will see a table with inputs for comparison content
+![admin-table.png](assets/img/admin-table.png)
+
+Demo output can be found [here](https://www.karmalakas.lt/grav-plugins-demos/plan-compare)
 
 ## Configuration
 

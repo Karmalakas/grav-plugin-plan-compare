@@ -53,6 +53,7 @@
 .plan-compare-table-holder .plan-compare-info {
     position: relative;
     font-weight: normal;
+    font-style: normal;
 }
 
 .plan-compare-table-holder .plan-compare-info::before {

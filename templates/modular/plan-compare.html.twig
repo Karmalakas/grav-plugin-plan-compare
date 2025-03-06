@@ -42,7 +42,12 @@
                                     <tr{{ feature.divider ? ' class="plan-compare-divider"' : "" }}{{ feature.color ? " style=\"background-color:#{feature.color};\""|raw : null }}>
                                         {% if feature.divider %}
                                             {% block divider %}
-                                                <th class="divider-feature">{{ feature.label }}</th>
+                                                <th class="divider-feature">
+                                                    {{ feature.label }}
+                                                    {% if feature.description %}
+                                                        <span class="plan-compare-info feature-info"><span>{{ feature.description|nl2br|markdown(false) }}</span></span>
+                                                    {% endif %}
+                                                </th>
                                                 {% for plan in plans %}
                                                     {% block dividerplancell %}
                                                         <th class="divider-plan"{{ plan.color ? " style=\"background-color:#{plan.color};\""|raw : null }}>

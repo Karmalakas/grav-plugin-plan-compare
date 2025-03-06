@@ -24,7 +24,7 @@
                                     <th>&nbsp;</th>
                                     {% for plan in plans %}
                                         {% block planlabelcell %}
-                                            <th>
+                                            <th{{ plan.color ? " style=\"background-color:#{plan.color};\""|raw : null }}>
                                                 {{ plan.label }}
                                                 {% if plan.description %}
                                                     <span class="plan-compare-info plan-info"><span>{{ plan.description|nl2br|markdown(false) }}</span></span>
@@ -39,7 +39,7 @@
                             <tbody>
                             {% for feature in features %}
                                 {% block featurerow %}
-                                    <tr{{ feature.divider ? ' class="plan-compare-divider"' : "" }}>
+                                    <tr{{ feature.divider ? ' class="plan-compare-divider"' : "" }}{{ feature.color ? " style=\"background-color:#{feature.color};\""|raw : null }}>
                                         {% if feature.divider %}
                                             {% block divider %}
                                                 <th class="divider-feature">{{ feature.label }}</th>

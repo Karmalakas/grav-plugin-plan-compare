@@ -19,6 +19,9 @@ en:
         LABEL: "Label"
         ACTIVE: "Active"
         DIVIDER: "Divider"
+        HIDE_PLAN:
+          LABEL: "Hide plan"
+          HELP: "If checked, will not show a plan name on a divider"
         COLOR: "Color"
         DESCRIPTION: "Description"
         SLUG:

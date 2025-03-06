@@ -65,6 +65,17 @@ form:
                                     0: PLUGIN_ADMIN.NO
                                   validate:
                                     type: bool
+                                .hide_plan:
+                                  type: toggle
+                                  label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.HIDE_PLAN.LABEL
+                                  help: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.HIDE_PLAN.HELP
+                                  highlight: 1
+                                  default: 0
+                                  options:
+                                    1: PLUGIN_ADMIN.YES
+                                    0: PLUGIN_ADMIN.NO
+                                  validate:
+                                    type: bool
                                 .description:
                                   type: codemirror
                                   label: PLUGIN_PLAN_COMPARE.FORMS.FEATURES.DESCRIPTION

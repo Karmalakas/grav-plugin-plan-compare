@@ -45,7 +45,9 @@
                                                 <th class="divider-feature">{{ feature.label }}</th>
                                                 {% for plan in plans %}
                                                     {% block dividerplancell %}
-                                                        <th class="divider-plan"{{ plan.color ? " style=\"background-color:#{plan.color};\""|raw : null }}>{{ plan.label }}</th>
+                                                        <th class="divider-plan"{{ plan.color ? " style=\"background-color:#{plan.color};\""|raw : null }}>
+                                                            {{ feature.hide_plan ? "" : plan.label }}
+                                                        </th>
                                                     {% endblock %}
                                                 {% endfor %}
                                             {% endblock %}
